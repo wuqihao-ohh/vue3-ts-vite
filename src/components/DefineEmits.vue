@@ -1,23 +1,19 @@
 <!-- 子组件 -->
-<script setup lang="ts">
-// 1.普通声明
-// const emit=defineEmits(["fatherEmit"])
-// const sonClick=()=>{
-//   emit("fatherEmit","我是子组件的数据")
-// }
 
-// 2.类型声明
-const emit=defineEmits<{
-   (e:'fatherEmit',data:string):void
-}>()
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+const router=useRouter()
 const sonClick=()=>{
-  emit("fatherEmit","我是子组件的数据")
+    router.push('/login')
 }
 
 </script>
 
 <template>
-  <button @click="sonClick">传递方法</button>
+  <button @click="sonClick">跳转</button>
+  <div>
+    跳转页面测试
+  </div>
 </template>
 
 <style scoped>
